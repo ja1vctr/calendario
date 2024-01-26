@@ -1,0 +1,74 @@
+import style from './calendario.module.scss'
+
+export default function Calendario() {
+  const mes = [
+    'janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro',
+  ]
+
+  const sem = ['S', 'T', 'Q', 'Q', 'S', 'S', 'D']
+
+  const dia = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+    '13',
+    '14',
+    '15',
+    '16',
+    '17',
+    '18',
+    '19',
+    '20',
+    '21',
+    '22',
+    '23',
+    '24',
+    '25',
+    '26',
+    '27',
+    '28',
+    '29',
+    '30',
+    '31',
+  ]
+
+  return (
+    <>
+      {mes.map((mes, index) => (
+        <div>
+          <div>{mes}</div>
+          <div>
+            {sem.map((sem) => (
+              <p>{sem}</p>
+            ))}
+          </div>
+          <div>
+            {dia.map((dia) => (
+              <p>{dia}</p>
+            ))}
+          </div>
+        </div>
+      ))}
+    </>
+  )
+}
