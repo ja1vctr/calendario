@@ -1,74 +1,48 @@
 import style from './calendario.module.scss'
+import moment, { months } from 'moment'
+import { useState } from 'react'
+import CardMes from './CardMes'
 
 export default function Calendario() {
-  const mes = [
-    'janeiro',
-    'Fevereiro',
-    'Março',
-    'Abril',
-    'Maio',
-    'Junho',
-    'Julho',
-    'Agosto',
-    'Setembro',
-    'Outubro',
-    'Novembro',
-    'Dezembro',
+  const [currentYear, setYear] = useState(2024)
+
+  const month = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ]
 
-  const sem = ['S', 'T', 'Q', 'Q', 'S', 'S', 'D']
-
-  const dia = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    '11',
-    '12',
-    '13',
-    '14',
-    '15',
-    '16',
-    '17',
-    '18',
-    '19',
-    '20',
-    '21',
-    '22',
-    '23',
-    '24',
-    '25',
-    '26',
-    '27',
-    '28',
-    '29',
-    '30',
-    '31',
-  ]
-
+  moment.updateLocale('pt', {
+    months: [
+      'janeiro',
+      'Fevereiro',
+      'Março',
+      'Abril',
+      'Maio',
+      'Junho',
+      'Julho',
+      'Agosto',
+      'Setembro',
+      'Outubro',
+      'Novembro',
+      'Dezembro',
+    ],
+  })
   return (
-    <>
-      {mes.map((mes, index) => (
-        <div>
-          <div>{mes}</div>
-          <div>
-            {sem.map((sem) => (
-              <p>{sem}</p>
-            ))}
-          </div>
-          <div>
-            {dia.map((dia) => (
-              <p>{dia}</p>
-            ))}
-          </div>
-        </div>
+    <div id="calendar-page">
+      <div className="content"></div>
+      {month.map((value) => (
+        <CardMes key={value} month={value} year={currentYear} />
       ))}
-    </>
+    </div>
   )
 }
